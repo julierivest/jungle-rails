@@ -1,0 +1,47 @@
+
+    <h1>Welcome to jungle.com,</h1>
+    <p>
+      Your order was successfully placed. Estimated delivery time: 2 weeks.
+    </p>
+
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+
+  <tbody>
+    <% @cart_total = 0 %>
+    <% @order.line_items.each do |item| %>
+    <% item_total = item.product.price * item.quantity %>
+    <% @cart_total += item_total %>
+
+  <tr>
+    <td>
+
+      <h4><%= item.product.name %></h4>
+
+
+    </td>
+      <td>
+        <%= item.product.price %>
+      </td>
+    <td>
+
+      <%= item.quantity %>
+
+    </td>
+    <td>
+      <%= item_total %>
+      <% end %>
+    </td>
+  </tr>
+  <tr colspan=4>
+    ORDER TOTAL: <%= @cart_total %>
+  </tr>
+</tbody>
+
+<p>Thanks for your business and have a great day!</p>
