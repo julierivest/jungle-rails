@@ -134,3 +134,83 @@ cat3.products.create!({
 
 
 puts "DONE!"
+
+# USERS
+
+(20.times).each do
+User.create({
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(8)
+  })
+end
+
+
+# REVIEWS
+
+puts "creating reviews!!!!!"
+
+r1 = Review.create({
+  product_id: 1,
+  user_id: 1,
+  description: "awesome",
+  rating: 5
+})
+
+r2 = Review.create({
+  product_id: 1,
+  user_id: 2,
+  description: "suck!!!!",
+  rating: 2
+})
+
+r3 = Review.create({
+  product_id: 3,
+  user_id: 3,
+  description: "worst purchase!!!!",
+  rating: 5
+})
+
+r4 = Review.create({
+  product_id: 1,
+  user_id: 2,
+  description: "best thing everrrrrr",
+  rating: 5
+})
+
+r5 = Review.create({
+  product_id: 1,
+  user_id: 3,
+  description: "not too bad",
+  rating: 3
+})
+
+r6 = Review.create({
+  product_id: 4,
+  user_id: 6,
+  description: "SHIT",
+  rating: 1
+})
+
+r7 = Review.create({
+  product_id: 2,
+  user_id: 1,
+  description: "big nono",
+  rating: 2
+})
+
+r8 = Review.create({
+  product_id: 2,
+  user_id: 4,
+  description: "wonderful!",
+  rating: 4
+})
+
+
+puts "reviews created"
+
+
+
+
+
